@@ -17,7 +17,7 @@ def crtaj(platno):
     boja = pg.Color("red")
     pg.draw.circle(platno, boja, (int(x), int(y)), 30)
 
-for frm in petljapg.frames(rate=30, size=(sirina, visina)):
+for frm in petljapg.frames(30, sirina, visina):
     vx = vx + frm.key_right_count() - frm.key_left_count()
     x = (x + vx * frm.period) % sirina
 

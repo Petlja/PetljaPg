@@ -43,18 +43,20 @@ class pg_frame:
             return True
         return None
 
-def frames(rate, size=None, caption=None):
+def frames(rate, width=None, height=None, caption=None):
     if pg.get_init():
-        if size is not None:
-            raise ValueError("Argument 'size' is not expected when pygame is allready initialized")
+        if width is not None:
+            raise ValueError("Argument 'width' is not expected when pygame is allready initialized")
+        if height is not None:
+            raise ValueError("Argument 'width' is not expected when pygame is allready initialized")
         if caption is not None:
-            raise ValueError("Argument 'caption' is not expected when pygame is allready initialized")
+            raise ValueError("Argument 'height' is not expected when pygame is allready initialized")
         surf = None
         manage_init = False
     else:
         pg.init()
-        if size is not None:
-            surf = pg.display.set_mode(size)
+        if width is not None:
+            surf = pg.display.set_mode((width,height))
         else:
             surf = pg.display.set_mode((500,500))
         if caption is not None:

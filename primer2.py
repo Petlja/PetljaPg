@@ -9,7 +9,7 @@ izbor_boje = 0
 
 # u elementarnim primerima ne insistiramo na podeli ažuriranja stanja i crtanja
 # u nekom trenutku ćemo izvući crtanje u posebnu funkciju
-for frm in petljapg.frames(rate=30, size=(500,300)):
+for frm in petljapg.frames(30, 500, 300):
     platno = frm.surface
     platno.fill(pg.Color("black"))
     x = x + frm.key_right_count() - frm.key_left_count()
