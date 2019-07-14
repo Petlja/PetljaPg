@@ -1,4 +1,5 @@
 import pygame as pg
+import inspect
 
 class pg_frame:
     def __init__(self, rate, seq, surf):
@@ -80,3 +81,28 @@ def frames(rate, width=None, height=None, caption=None):
         sat.tick(rate)
     if manage_init:
         pg.quit()
+
+def init(width=None, height=None, caption=None):
+    pg.init()
+    if width is not None:
+        surf = pg.display.set_mode((width,height))
+    else:
+        surf = pg.display.set_mode((500,500))
+    if caption is not None:
+        pg.display.set_caption(caption)
+    pg.key.set_repeat(500, 10)
+    return surf
+
+
+def run(rate = None, process_frame=None):
+    if rate is None:
+        rate = 30
+    for frm in frames(rate):
+        if process_frame:
+            params = inspect.signature(process_frame).parameters
+            if not params:
+                process_frame()
+            else:
+                process_frame(frm)
+
+
