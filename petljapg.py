@@ -105,4 +105,21 @@ def run(rate = None, process_frame=None):
             else:
                 process_frame(frm)
 
+def run2(draw,handle_event):
+    def main_loop():
+        while not kraj:
+            dogadjaji = [pg.event.wait()]
+            dogadjaji += pg.event.get()
+            treba_crtati = False
+            for dogadjaj in dogadjaji:   
+                if dogadjaj.type == pg.QUIT:   # isključivanje prozora
+                    return            
+                if obradi_dogadjaj(dogadjaj):
+                    treba_crtati = True
+            if treba_crtati:
+                crtaj()
+                pg.display.update()  
+    def main_loop():
+    pg.quit()  
+
 
