@@ -3,15 +3,13 @@ import petljapg
 
 sirina, visina = 500, 300
 prozor = petljapg.open_window(500, 500, "Dodavanje i oduzimanje brzine")
+pg.key.set_repeat(10,10)
+fps = 30
 
 x = 150
 y = 150
 vx = 0
 vy = 0
-
-fps = 30
-
-pg.key.set_repeat(10,10)
 
 def crtaj():
     prozor.fill(pg.Color("white"))

@@ -1,7 +1,6 @@
 import pygame as pg
 import petljapg
 
-
 prozor = petljapg.open_window(500, 500, "Mis")
 x = 150
 y = 150

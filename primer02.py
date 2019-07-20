@@ -23,4 +23,4 @@ def osvezi_frejm():
     boja = pg.Color("red")
     pg.draw.circle(prozor, boja, (x, y), 30)
 
-petljapg.frame_loop(30, osvezi_frejm())
+petljapg.frame_loop(30, osvezi_frejm)

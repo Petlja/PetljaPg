@@ -1,6 +1,5 @@
 import pygame as pg
 
-
 def open_window(width, height, caption):
     pg.init()
     surface = pg.display.set_mode((width,height))
