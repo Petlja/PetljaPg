@@ -11,7 +11,7 @@ vy = 0
 
 fps = 30
 
-def crtaj_frejm():
+def osvezi_frejm():
     global x,y,vx,vy
     pritisnuto = pg.key.get_pressed()
     if pritisnuto[pg.K_RIGHT]:
@@ -31,4 +31,4 @@ def crtaj_frejm():
     pg.draw.circle(prozor, boja, (int(x), int(y)), 30)
 
 
-petljapg.frame_loop(fps, crtaj_frejm)
+petljapg.frame_loop(fps, osvezi_frejm)

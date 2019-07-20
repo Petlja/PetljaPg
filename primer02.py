@@ -8,7 +8,7 @@ x = 150
 y = 150
 v= 1
 
-def crtaj_frejm():
+def osvezi_frejm():
     global x, y
     prozor.fill(pg.Color("white"))
     pritisnuto = pg.key.get_pressed()
@@ -23,4 +23,4 @@ def crtaj_frejm():
     boja = pg.Color("red")
     pg.draw.circle(prozor, boja, (x, y), 30)
 
-petljapg.frame_loop(30, crtaj_frejm())
+petljapg.frame_loop(30, osvezi_frejm())

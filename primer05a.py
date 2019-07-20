@@ -13,14 +13,16 @@ fps = 30
 
 pg.key.set_repeat(10,10)
 
+def crtaj():
+    prozor.fill(pg.Color("white"))
+    boja = pg.Color("red")
+    pg.draw.circle(prozor, boja, (int(x), int(y)), 30)
+
 def osvezi_frejm():
     global x,y
     x = (x + vx/fps) % sirina
     y = (y + vy/fps) % visina
-
-    prozor.fill(pg.Color("white"))
-    boja = pg.Color("red")
-    pg.draw.circle(prozor, boja, (int(x), int(y)), 30)
+    crtaj()
 
 def obradi_dogadjaj(d):
     global vx, vy
@@ -33,5 +35,6 @@ def obradi_dogadjaj(d):
             vy += 1
         elif d.key == pg.K_UP:
             vy -= 1
+
 
 petljapg.frame_loop(fps, osvezi_frejm, obradi_dogadjaj)

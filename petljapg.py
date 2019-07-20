@@ -13,8 +13,7 @@ def wait_loop():
         pass
     pg.quit()
 
-
-def frame_loop(rate, draw_frame, handle_event=None):
+def frame_loop(rate, update_frame, handle_event=None):
     clock = pg.time.Clock() 
     while True:
         for event in pg.event.get():
@@ -23,7 +22,7 @@ def frame_loop(rate, draw_frame, handle_event=None):
                 return
             if handle_event:
                 handle_event(event)
-        draw_frame()
+        update_frame()
         pg.display.update()
         clock.tick(rate)
 
