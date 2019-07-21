@@ -29,4 +29,4 @@ def crtaj():
     prozor.fill(pg.Color("white"))
     pg.draw.circle(prozor, pg.Color("blue"), (x, y), 50)
 
-petljapg.frame_loop(30, crtaj, {pg.MOUSEBUTTONDOWN:klik, pg.KEYDOWN:taster})
+petljapg.event_loop(crtaj, {pg.MOUSEBUTTONDOWN:klik, pg.KEYDOWN:taster})
