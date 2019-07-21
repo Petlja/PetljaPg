@@ -11,7 +11,7 @@ y = 150
 vx = 0
 vy = 0
 
-def osvezi_frejm():
+def osvezi():
     global x,y
     x = (x + vx/fps) % sirina
     y = (y + vy/fps) % visina
@@ -32,4 +32,4 @@ def obradi_dogadjaj(d):
         elif d.key == pg.K_UP:
             vy -= 1
 
-petljapg.frame_loop(fps, osvezi_frejm, obradi_dogadjaj)
+petljapg.frame_loop(fps, osvezi, obradi_dogadjaj)

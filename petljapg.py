@@ -19,8 +19,7 @@ def frame_loop(rate, update_frame, handle_event=None):
             if event.type == pg.QUIT:
                 pg.quit()
                 return
-            if handle_event:
-                handle_event(event)
+            call_event_handler(handle_event, event)
         update_frame()
         pg.display.update()
         clock.tick(rate)
@@ -30,12 +29,20 @@ def event_loop(draw, handle_event):
     pg.display.update()
     while True:
         treba_crtati = False
-        for dogadjaj in [pg.event.wait()] + pg.event.get():
-            if dogadjaj.type == pg.QUIT:
-                pg.quit()    
+        for event in [pg.event.wait()] + pg.event.get():
+            if event.type == pg.QUIT:
+                pg.quit()
                 return
-            if handle_event(dogadjaj):
+            if call_event_handler(handle_event, event):
                 treba_crtati = True
         if treba_crtati:
             draw()
             pg.display.update()
+
+def call_event_handler(handle_event, event):
+    if isinstance(handle_event, dict):
+        if event.type in handle_event:
+            return handle_event[event.type](event)
+    elif handle_event:
+        return handle_event(event)
+    return None

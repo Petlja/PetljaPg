@@ -11,14 +11,16 @@ y = 150
 vx = 0
 vy = 0
 
+def crtaj():
+    prozor.fill(pg.Color("white"))
+    boja = pg.Color("red")
+    pg.draw.circle(prozor, boja, (int(x), int(y)), 30)
+
 def osvezi():
     global x,y
     x = (x + vx/fps) % sirina
     y = (y + vy/fps) % visina
-
-    prozor.fill(pg.Color("white"))
-    boja = pg.Color("red")
-    pg.draw.circle(prozor, boja, (int(x), int(y)), 30)
+    crtaj()
 
 def taster(d):
     global vx, vy
@@ -30,5 +32,6 @@ def taster(d):
         vy += 1
     elif d.key == pg.K_UP:
         vy -= 1
+
 
 petljapg.frame_loop(fps, osvezi, {pg.KEYDOWN:taster})
