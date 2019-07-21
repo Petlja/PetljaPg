@@ -25,8 +25,6 @@ def obradi_dogadjaj(d):
         return True
     return False
 
-
-
 def crtaj():
     prozor.fill(pg.Color("white"))
     pg.draw.circle(prozor, pg.Color("blue"), (x, y), 50)
