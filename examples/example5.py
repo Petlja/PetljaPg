@@ -1,32 +1,32 @@
 import pygame as pg
 import pygamebg
 
-surface = pygamebg.open_window(500, 500, "Keyboard and mouse events")
+width, height = 500, 300
+surface = pygamebg.open_window(width, width, "Increasing and decreasing speed")
 pg.key.set_repeat(10,10)
 
+fps = 30
 x, y = 150, 150
+vx, vy = 0, 0
 
-def handle_event(d):
-    global x, y
-    if d.type == pg.MOUSEBUTTONDOWN:
-        x,y = d.pos
-        return True
-    if d.type == pg.KEYDOWN:
-        if d.key == pg.K_RIGHT:
-            x += 1
-        elif d.key == pg.K_LEFT:
-            x -= 1
-        elif d.key == pg.K_DOWN:
-            y += 1
-        elif d.key == pg.K_UP:
-            y -= 1
-        else:
-            return False
-        return True
-    return False
+def update():
+    global x,y
+    x = (x + vx/fps) % width
+    y = (y + vy/fps) % height
 
-def paint():
     surface.fill(pg.Color("white"))
-    pg.draw.circle(surface, pg.Color("blue"), (x, y), 50)
+    color = pg.Color("red")
+    pg.draw.circle(surface, color, (int(x), int(y)), 30)
 
-pygamebg.event_loop(paint, handle_event)
+def keydown(e):
+    global vx, vy
+    if e.key == pg.K_RIGHT:
+        vx += 1
+    elif e.key == pg.K_LEFT:
+        vx -= 1
+    elif e.key == pg.K_DOWN:
+        vy += 1
+    elif e.key == pg.K_UP:
+        vy -= 1
+
+pygamebg.frame_loop(fps, update, {pg.KEYDOWN: keydown})

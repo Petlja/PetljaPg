@@ -21,7 +21,7 @@ setuptools.setup(
     version=version,
     author="Fondacija Petlja",
     author_email="team@petlja.org",
-    description="Pygame Toolbox for Begginers by Petlja",
+    description="Pygame Toolbox for Beginners by Petlja",
     long_description=long_description,
     long_description_content_type="text/x-rst",
     url="https://github.com/Petlja/PygameBg",
@@ -30,7 +30,7 @@ setuptools.setup(
     zip_safe=True,
     py_modules = ["pygamebg"],
     classifiers=[
-        'Programming Language :: Python :: 3.6'
+        "Programming Language :: Python :: 3.6",
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent"
     ]

@@ -6,27 +6,27 @@ pg.key.set_repeat(10,10)
 
 x, y = 150, 150
 
-def clicked(d):
+def handle_event(e):
     global x, y
-    x,y = d.pos
-    return True
-
-def keypressed(d):
-    global x,y
-    if d.key == pg.K_RIGHT:
-        x += 1
-    elif d.key == pg.K_LEFT:
-        x -= 1
-    elif d.key == pg.K_DOWN:
-        y += 1
-    elif d.key == pg.K_UP:
-        y -= 1
-    else:
-        return False
-    return True
+    if e.type == pg.MOUSEBUTTONDOWN:
+        x,y = e.pos
+        return True
+    if e.type == pg.KEYDOWN:
+        if e.key == pg.K_RIGHT:
+            x += 1
+        elif e.key == pg.K_LEFT:
+            x -= 1
+        elif e.key == pg.K_DOWN:
+            y += 1
+        elif e.key == pg.K_UP:
+            y -= 1
+        else:
+            return False
+        return True
+    return False
 
 def paint():
     surface.fill(pg.Color("white"))
     pg.draw.circle(surface, pg.Color("blue"), (x, y), 50)
 
-pygamebg.event_loop(paint, {pg.MOUSEBUTTONDOWN:clicked, pg.KEYDOWN:keypressed})
+pygamebg.event_loop(paint, handle_event)

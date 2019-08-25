@@ -1,15 +1,15 @@
-PygameBg - Pygame Toolbox for Begginers by Petlja
+PygameBg - Pygame Toolbox for Beginners by Petlja
 =================================================
 
 PygameBg is a small Python package aimed to reduces boilerplate code in simple Pygame programs, primarily initialization code and main loop.
 
-PygamePg shoud make early Pygame learning curve more gradual for those without programming experience, but without losing focus from the pure Pygame API. 
+PygamePg should make Pygame learning curve more gradual for beginner programmers, but without losing focus from the pure Pygame API. 
 
-When we comare Python with C-like programming languages, one of the positive features we usualy mention is a single line "Hellow World!" example::
+When we compare Python with C-like programming languages, one of the positive features we usually mention is a single line "Hellow World!" example::
 
     print('Hellow World!')
 
-Pygame is not pythonish enough here. A proper "Draw circle" programm looks like::
+Pygame is not pythonic enough here. A proper "Draw circle" program looks like::
 
     import pygame as pg
 
@@ -29,7 +29,7 @@ The central line of code in this example we would like to be focused on is::
 
     pg.draw.circle(surface, pg.Color("blue"), (200,200),100)
 
-We could say that first three lines (excuding ``import``) opens a window, and last four lines waits for user to quit, but we would not like to bore with detais of those boilerplate lines.
+We could say that first three lines (excluding ``import``) opens a window, and last four lines waits for user to quit, but we would not like to burden beginners with details of those boilerplate statements.
 
 Here is an equivalent example that use PatljaBg::
 
@@ -42,9 +42,9 @@ Here is an equivalent example that use PatljaBg::
 
     pygamebg.wait_loop()
 
-This is much more readable first example for begginers and easier to explain: We open window, then draw blue circe and wait for user to quit.
+This is much more readable first example for beginners and easier to explain: We open window, then draw blue circle and wait for user to quit.
 
-Beside ``wait_loop``, PygameBg supports ``frame_loop`` and ``event_loop``.
+Besides ``wait_loop``, PygameBg supports ``frame_loop`` and ``event_loop``.
 
 Here is example that use ``frame_loop``::
 
@@ -71,7 +71,7 @@ Here is example that use ``frame_loop``::
 
     pygamebg.frame_loop(30, update)
 
-Frame loop calls ``update`` function once per frame and may optionaly call an event handler function::
+Frame loop calls ``update`` function once per frame and may optionally call an event handler function::
 
     import pygame as pg
     import pygamebg
@@ -107,46 +107,47 @@ Frame loop calls ``update`` function once per frame and may optionaly call an ev
 
     pygamebg.frame_loop(fps, update, handle_event)
 
-We can also use a dictionary agrument to specify event handlers for specific event types::
 
-    def keydown(d):
+We can also use a dictionary argument to specify event handlers for specific event types::
+
+    def keydown(e):
         global vx, vy
-        if d.key == pg.K_RIGHT:
+        if e.key == pg.K_RIGHT:
             vx += 1
-        elif d.key == pg.K_LEFT:
+        elif e.key == pg.K_LEFT:
             vx -= 1
-        elif d.key == pg.K_DOWN:
+        elif e.key == pg.K_DOWN:
             vy += 1
-        elif d.key == pg.K_UP:
+        elif e.key == pg.K_UP:
             vy -= 1
 
     pygamebg.frame_loop(fps, update, {pg.KEYDOWN: keydown})
 
-Frame loop can handle events, but it is allways frame driven: it updates on each frame and handles pending events before each update.
+Frame loop can handle events, but it is always frame driven: it updates on each frame and handles pending events before each update.
 
 A pure event loop handles events immediately when they occurred and triggers repaint when needed (when an event handler returns ``True``)::
 
     import pygame as pg
     import pygamebg
 
-    surface = pygamebg.open_window(500, 500, "Keboard and mouse events")
+    surface = pygamebg.open_window(500, 500, "Keyboard and mouse events")
     pg.key.set_repeat(10,10)
 
     x, y = 150, 150
 
-    def handle_event(d):
+    def handle_event(e):
         global x, y
-        if d.type == pg.MOUSEBUTTONDOWN:
-            x,y = d.pos
+        if e.type == pg.MOUSEBUTTONDOWN:
+            x,y = e.pos
             return True
-        if d.type == pg.KEYDOWN:
-            if d.key == pg.K_RIGHT:
+        if e.type == pg.KEYDOWN:
+            if e.key == pg.K_RIGHT:
                 x += 1
-            elif d.key == pg.K_LEFT:
+            elif e.key == pg.K_LEFT:
                 x -= 1
-            elif d.key == pg.K_DOWN:
+            elif e.key == pg.K_DOWN:
                 y += 1
-            elif d.key == pg.K_UP:
+            elif e.key == pg.K_UP:
                 y -= 1
             else:
                 return False
@@ -160,30 +161,31 @@ A pure event loop handles events immediately when they occurred and triggers rep
     pygamebg.event_loop(paint, handle_event)
 
 
+
 A dictionary argument can also be used to specify event handlers for specific event types::
 
     import pygame as pg
     import pygamebg
 
-    surface = pygamebg.open_window(500, 500, "Keyboard and mouse")
+    surface = pygamebg.open_window(500, 500, "Keyboard and mouse events")
     pg.key.set_repeat(10,10)
 
     x, y = 150, 150
 
-    def clicked(d):
+    def clicked(e):
         global x, y
-        x,y = d.pos
+        x,y = e.pos
         return True
 
-    def keypressed(d):
+    def keypressed(e):
         global x,y
-        if d.key == pg.K_RIGHT:
+        if e.key == pg.K_RIGHT:
             x += 1
-        elif d.key == pg.K_LEFT:
+        elif e.key == pg.K_LEFT:
             x -= 1
-        elif d.key == pg.K_DOWN:
+        elif e.key == pg.K_DOWN:
             y += 1
-        elif d.key == pg.K_UP:
+        elif e.key == pg.K_UP:
             y -= 1
         else:
             return False
@@ -195,5 +197,6 @@ A dictionary argument can also be used to specify event handlers for specific ev
 
     pygamebg.event_loop(paint, {pg.MOUSEBUTTONDOWN:clicked, pg.KEYDOWN:keypressed})
 
-Source files of all examples are avaiable `here 
+
+Source files of all examples are available `here 
 <https://github.com/Petlja/PygameBg/tree/master/examples>`_.
