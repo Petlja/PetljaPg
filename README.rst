@@ -71,7 +71,7 @@ Here is example that use ``frame_loop``::
 
     pygamebg.frame_loop(30, update)
 
-Frame loop calls ``update`` function once per frama and may optionaly call an event handler function::
+Frame loop calls ``update`` function once per frame and may optionaly call an event handler function::
 
     import pygame as pg
     import pygamebg
