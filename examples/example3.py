@@ -1,8 +1,8 @@
 import pygame as pg
-import petljapg
+import pygamebg
 
 sirina, visina = 500, 300
-prozor = petljapg.open_window(500, 500, "Dodavanje i oduzimanje brzine")
+prozor = pygamebg.open_window(500, 500, "Increasing and decreasing speed")
 
 x = 150
 y = 150
@@ -31,4 +31,4 @@ def osvezi():
     pg.draw.circle(prozor, boja, (int(x), int(y)), 30)
 
 
-petljapg.frame_loop(fps, osvezi)
+pygamebg.frame_loop(fps, osvezi)

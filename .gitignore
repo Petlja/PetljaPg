@@ -1,9 +1,4 @@
 .vscode
-.ipynb_checkpoints
-logs
-json_logs
-outputs
 __pycache__
-*.db
-*.db-*
 local
+*.egg-info

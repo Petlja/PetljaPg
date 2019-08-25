@@ -1,12 +1,12 @@
 import pygame as pg
-import petljapg
+import pygamebg
 
-prozor = petljapg.open_window(500, 500, "Mis")
+surface = pygamebg.open_window(500, 500, "Keyboard and mouse events")
 pg.key.set_repeat(10,10)
-x = 150
-y = 150
 
-def obradi_dogadjaj(d):
+x, y = 150, 150
+
+def handle_event(d):
     global x, y
     if d.type == pg.MOUSEBUTTONDOWN:
         x,y = d.pos
@@ -25,8 +25,8 @@ def obradi_dogadjaj(d):
         return True
     return False
 
-def crtaj():
-    prozor.fill(pg.Color("white"))
-    pg.draw.circle(prozor, pg.Color("blue"), (x, y), 50)
+def paint():
+    surface.fill(pg.Color("white"))
+    pg.draw.circle(surface, pg.Color("blue"), (x, y), 50)
 
-petljapg.event_loop(crtaj, obradi_dogadjaj)
+pygamebg.event_loop(paint, handle_event)

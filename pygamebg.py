@@ -1,5 +1,7 @@
 import pygame as pg
 
+__version__ = "0.9.0"
+
 def open_window(width, height, caption):
     pg.init()
     surface = pg.display.set_mode((width,height))
@@ -13,13 +15,13 @@ def wait_loop():
     pg.quit()
 
 def frame_loop(rate, update_frame, handle_event=None):
-    clock = pg.time.Clock() 
+    clock = pg.time.Clock()
     while True:
         for event in pg.event.get():
             if event.type == pg.QUIT:
                 pg.quit()
                 return
-            call_event_handler(handle_event, event)
+            _call_event_handler(handle_event, event)
         update_frame()
         pg.display.update()
         clock.tick(rate)
@@ -33,13 +35,13 @@ def event_loop(draw, handle_event):
             if event.type == pg.QUIT:
                 pg.quit()
                 return
-            if call_event_handler(handle_event, event):
+            if _call_event_handler(handle_event, event):
                 treba_crtati = True
         if treba_crtati:
             draw()
             pg.display.update()
 
-def call_event_handler(handle_event, event):
+def _call_event_handler(handle_event, event):
     if isinstance(handle_event, dict):
         if event.type in handle_event:
             return handle_event[event.type](event)

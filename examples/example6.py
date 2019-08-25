@@ -1,17 +1,17 @@
 import pygame as pg
-import petljapg
+import pygamebg
 
-prozor = petljapg.open_window(500, 500, "Mis")
+surface = pygamebg.open_window(500, 500, "Keyboard and mouse events")
 pg.key.set_repeat(10,10)
-x = 150
-y = 150
 
-def klik(d):
+x, y = 150, 150
+
+def clicked(d):
     global x, y
     x,y = d.pos
     return True
 
-def taster(d):
+def keypressed(d):
     global x,y
     if d.key == pg.K_RIGHT:
         x += 1
@@ -25,8 +25,8 @@ def taster(d):
         return False
     return True
 
-def crtaj():
-    prozor.fill(pg.Color("white"))
-    pg.draw.circle(prozor, pg.Color("blue"), (x, y), 50)
+def paint():
+    surface.fill(pg.Color("white"))
+    pg.draw.circle(surface, pg.Color("blue"), (x, y), 50)
 
-petljapg.event_loop(crtaj, {pg.MOUSEBUTTONDOWN:klik, pg.KEYDOWN:taster})
+pygamebg.event_loop(paint, {pg.MOUSEBUTTONDOWN:clicked, pg.KEYDOWN:keypressed})
