@@ -1,9 +1,9 @@
 PygameBg - Pygame Toolbox for Begginers by Petlja
 =================================================
 
-PyganeBg is a small Python package aimed to reduces boilerplate code in simple Pygame programs, primarily initialization code and main loop.
+PygameBg is a small Python package aimed to reduces boilerplate code in simple Pygame programs, primarily initialization code and main loop.
 
-PetljaPg shoud make early Pygame learning curve more gradual for those without programming experience, but without losing focus from the pure Pygame API. 
+PygamePg shoud make early Pygame learning curve more gradual for those without programming experience, but without losing focus from the pure Pygame API. 
 
 When we comare Python with C-like programming languages, one of the positive features we usualy mention is a single line "Hellow World!" example::
 
