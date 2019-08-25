@@ -2,3 +2,5 @@
 __pycache__
 local
 *.egg-info
+build
+dist
