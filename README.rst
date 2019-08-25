@@ -9,7 +9,7 @@ When we comare Python with C-like programming languages, one of the positive fea
 
     print('Hellow World!')
 
-Pygame is not enough pythonish here. A proper "Draw circle" programm looks like::
+Pygame is not pythonish enough here. A proper "Draw circle" programm looks like::
 
     import pygame as pg
 
