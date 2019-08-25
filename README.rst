@@ -195,15 +195,5 @@ A dictionary argument can also be used to specify event handlers for specific ev
 
     pygamebg.event_loop(paint, {pg.MOUSEBUTTONDOWN:clicked, pg.KEYDOWN:keypressed})
 
-
-
-
-
-
-
-
-
-
-
-
-
+Source files of all examples are avaiable `here 
+<https://github.com/Petlja/PygameBg/tree/master/examples>`_.
