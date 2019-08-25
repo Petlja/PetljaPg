@@ -1,7 +1,7 @@
 PygameBg - Pygame Toolbox for Beginners by Petlja
 =================================================
 
-PygameBg is a small Python package aimed to reduces boilerplate code in simple Pygame programs, primarily initialization code and main loop.
+PygameBg is a small Python package aimed to reduce boilerplate code in simple Pygame programs, primarily initialization code and main loop.
 
 PygamePg should make Pygame learning curve more gradual for beginner programmers, but without losing focus from the pure Pygame API. 
 
@@ -25,11 +25,11 @@ Pygame is not pythonic enough here. A proper "Draw circle" program looks like::
     pg.quit()
 
 
-The central line of code in this example we would like to be focused on is::
+The central line of code in this example is::
 
     pg.draw.circle(surface, pg.Color("blue"), (200,200),100)
 
-We could say that first three lines (excluding ``import``) opens a window, and last four lines waits for user to quit, but we would not like to burden beginners with details of those boilerplate statements.
+We could say that the first three lines (excluding ``import``) opens a window, and the last four lines waits for user to quit, but we would not like to burden beginners with details of those boilerplate statements.
 
 Here is an equivalent example that use PatljaBg::
 
@@ -42,7 +42,7 @@ Here is an equivalent example that use PatljaBg::
 
     pygamebg.wait_loop()
 
-This is much more readable first example for beginners and easier to explain: We open window, then draw blue circle and wait for user to quit.
+This is much more readable first example for beginners and easier to explain: We open window, then draw blue circle and then wait for user to quit.
 
 Besides ``wait_loop``, PygameBg supports ``frame_loop`` and ``event_loop``.
 
@@ -71,7 +71,7 @@ Here is example that use ``frame_loop``::
 
     pygamebg.frame_loop(30, update)
 
-Frame loop calls ``update`` function once per frame and may optionally call an event handler function::
+So, frame loop calls ``update`` function once per frame and may optionally call an event handler::
 
     import pygame as pg
     import pygamebg
