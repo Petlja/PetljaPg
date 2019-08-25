@@ -200,3 +200,14 @@ A dictionary argument can also be used to specify event handlers for specific ev
 
 Source files of all examples are available `here 
 <https://github.com/Petlja/PygameBg/tree/master/examples>`_.
+
+How to install PygameBg
+-----------------------
+
+Use ``pip`` to install PygameBg::
+
+    pip3 install pygamebg
+
+If you use windows and previous command does not work, try::
+
+    py -3 -m pip install pygamebg
