@@ -122,7 +122,7 @@ We can also use a dictionary agrument to specify event handlers for specific eve
 
     pygamebg.frame_loop(fps, update, {pg.KEYDOWN: keydown})
 
-A frame loop can handle events, but it allways frame driven: it updates on each frame and handles pending events before each update.
+Frame loop can handle events, but it is allways frame driven: it updates on each frame and handles pending events before each update.
 
 A pure event loop handles events immediately when they occurred and triggers repaint when needed (when an event handler returns ``True``)::
 
