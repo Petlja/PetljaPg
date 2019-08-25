@@ -24,7 +24,7 @@ setuptools.setup(
     description="Pygame Toolbox for Begginers by Petlja",
     long_description=long_description,
     long_description_content_type="text/x-rst",
-    url="https://github.com/Petlja/PetljaDoc",
+    url="https://github.com/Petlja/PygameBg",
     install_requires=install_requires,
     include_package_data=False,
     zip_safe=True,
