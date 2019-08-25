@@ -208,6 +208,6 @@ Use ``pip`` to install PygameBg::
 
     pip3 install pygamebg
 
-If you use windows and previous command does not work, try::
+If you use Windows and previous command does not work, try::
 
     py -3 -m pip install pygamebg
