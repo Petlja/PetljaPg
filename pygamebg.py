@@ -1,6 +1,6 @@
 import pygame as pg
 
-__version__ = "0.9.0"
+__version__ = "0.9.1"
 
 def open_window(width, height, caption):
     pg.init()
