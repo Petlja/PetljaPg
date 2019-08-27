@@ -16,7 +16,7 @@ m = re.search(r'\_\_version\_\_\s*=\s*\"([^"]*)\"', src)
 version = m.group(1)
 
 setuptools.setup(
-    python_requires=">=3.6",
+    python_requires=">=3",
     name="PygameBg",
     version=version,
     author="Fondacija Petlja",
@@ -30,7 +30,7 @@ setuptools.setup(
     zip_safe=True,
     py_modules = ["pygamebg"],
     classifiers=[
-        "Programming Language :: Python :: 3.6",
+        "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent"
     ]
