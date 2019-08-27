@@ -30,14 +30,14 @@ def event_loop(draw, handle_event):
     draw()
     pg.display.update()
     while True:
-        treba_crtati = False
+        need_to_redraw = False
         for event in [pg.event.wait()] + pg.event.get():
             if event.type == pg.QUIT:
                 pg.quit()
                 return
             if _call_event_handler(handle_event, event):
-                treba_crtati = True
-        if treba_crtati:
+                need_to_redraw = True
+        if need_to_redraw:
             draw()
             pg.display.update()
 
